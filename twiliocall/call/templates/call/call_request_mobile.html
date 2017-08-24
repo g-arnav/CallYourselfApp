@@ -1,0 +1,15 @@
+<font size="20">Use the Call Yourself App for much easier usage!</font>
+<br>
+<br>
+{% if call_error %}
+    <strong>The number you entered is invalid.</strong>
+    <strong>The number may have been dialed incorrectly or the format was not followed.</strong>
+    <br>
+{% endif %}
+<h1>Choose the phone you would like to call</h1>
+<form action = "{% url 'call_made' %}" method = 'post'>
+    {% csrf_token %}
+    Phone number: <input type='text' name="number" value="ex:+15105098557">
+    <input type="submit" value="Call">
+</form>
+<strong>Note: You must begin the phone number with "+1" followed by the number without any spaces or dashes.</strong>
